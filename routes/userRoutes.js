@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 
-const BASE_URL = process.env.BASE_URL;
+// const BASE_URL = process.env.BASE_URL;
 
 //all the models are listed below
 const user = require("../models/user");
@@ -141,6 +141,7 @@ router.post("/login", async (req, res) => {
       }
     });
   } catch (error) {
+    console.log("ess");
     console.log(error.message);
     res.status(500).json({ success: false, msg: "Error while login in" });
   }
