@@ -69,6 +69,7 @@ router.post("/verifyOtp", async (req, res) => {
     });
     res.status(200).send({ success: true, msg: "OTP sent successfully" });
   } catch (error) {
+    console.log(error);
     res.status(400).send({ success: false, msg: "unble to send OTP" });
   }
 });
