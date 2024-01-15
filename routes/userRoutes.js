@@ -51,13 +51,28 @@ router.post("/verifyOtp", async (req, res) => {
       return res.status(400).json({ success: false, msg: "Invalid request" });
     }
 
+    // let transporter = nodemailer.createTransport({
+    //   host: "smtp.gmail.com",
+    //   port: 587,
+    //   secure: false,
+    //   auth: {
+    //     user: process.env.USERMAIL,
+    //     pass: process.env.USERMAILPASS,
+    //   },
+    // });
     let transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
+      host: "gmail",
       port: 587,
       secure: false,
+      logger: true,
+      debug: true,
+      secureConnection: false,
       auth: {
         user: process.env.USERMAIL,
         pass: process.env.USERMAILPASS,
+      },
+      tls: {
+        rejectUnauthorized: true,
       },
     });
 
