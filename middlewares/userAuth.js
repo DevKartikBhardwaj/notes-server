@@ -7,6 +7,7 @@ const user = require("../models/user");
 const userAuth = async (req, res, next) => {
   const token = req.cookies.auth_token;
   if (!token) {
+    console.log("in");
     return res
       .status(400)
       .json({ success: false, msg: "Login to access the page" });
