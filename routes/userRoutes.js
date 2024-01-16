@@ -130,6 +130,7 @@ router.post("/login", async (req, res) => {
           },
         };
         const token = jwt.sign(data, jwt_secret);
+        console.log(token);
         res.cookie("auth_token", token, {
           expires: new Date(Date.now() + 9000000000),
         });
