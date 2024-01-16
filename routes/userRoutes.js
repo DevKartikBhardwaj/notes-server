@@ -61,7 +61,7 @@ router.post("/verifyOtp", async (req, res) => {
     //   },
     // });
     let transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
+      host: "gmail",
       port: 587,
       secure: false,
       logger: true,
