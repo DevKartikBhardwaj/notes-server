@@ -130,11 +130,12 @@ router.post("/login", async (req, res) => {
           },
         };
         const token = jwt.sign(data, jwt_secret);
-        console.log(token, "zzzzz");
         res.cookie("auth_token", token, {
           expires: new Date(Date.now() + 9000000000),
         });
-        res.status(200).json({ success: true, msg: "Login Successfully" });
+        res
+          .status(200)
+          .json({ success: true, msg: "Login Successfully", token });
       } else {
         res
           .status(403)
