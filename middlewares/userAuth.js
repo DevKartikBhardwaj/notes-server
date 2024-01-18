@@ -6,6 +6,7 @@ const user = require("../models/user");
 
 const userAuth = async (req, res, next) => {
   const token = req.cookies.auth_token;
+  console.log(req.cookies, token);
   if (!token) {
     console.log("not token");
     return res
