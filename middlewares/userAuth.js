@@ -7,7 +7,7 @@ const user = require("../models/user");
 const userAuth = async (req, res, next) => {
   const token = req.cookies.auth_token;
   if (!token) {
-    console.log("in");
+    console.log("not token");
     return res
       .status(400)
       .json({ success: false, msg: "Login to access the page" });
@@ -17,6 +17,7 @@ const userAuth = async (req, res, next) => {
 
   const userExist = await user.findById(decoded.user.id);
   if (!userExist) {
+    console.log("not user exist");
     return res
       .status(400)
       .json({ success: false, msg: "Login to access the page" });
