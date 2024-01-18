@@ -135,6 +135,8 @@ router.post("/login", async (req, res) => {
           sameSite: "none",
           secure: true,
           httpOnly: true,
+          domain: "https://notes-client-rho.vercel.app",
+          path: "/",
         });
         res
           .status(200)
