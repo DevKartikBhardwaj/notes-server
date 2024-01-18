@@ -134,7 +134,7 @@ router.post("/login", async (req, res) => {
           expires: new Date(Date.now() + 9000000000),
           sameSite: "none",
           secure: true,
-          httpOnly: false,
+          httpOnly: true,
         });
         res
           .status(200)
